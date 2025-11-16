@@ -501,9 +501,32 @@ const Index = () => {
                       <p className="text-sm text-muted-foreground mb-4">
                         Площадь: {standWidth && standHeight ? (parseFloat(standWidth) * parseFloat(standHeight)).toFixed(2) : '0'} м²
                       </p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-muted-foreground mb-6">
                         * Точная стоимость рассчитывается индивидуально
                       </p>
+                      <Button 
+                        size="lg" 
+                        className="w-full"
+                        onClick={() => {
+                          const contactSection = document.getElementById('contact');
+                          const nameInput = document.querySelector('input[placeholder="Ваше имя"]') as HTMLInputElement;
+                          const messageInput = document.querySelector('textarea[placeholder="Расскажите о вашем проекте"]') as HTMLTextAreaElement;
+                          
+                          if (messageInput) {
+                            const calcDetails = `Информационный стенд:\n- Размер: ${standWidth}×${standHeight} м (${standWidth && standHeight ? (parseFloat(standWidth) * parseFloat(standHeight)).toFixed(2) : '0'} м²)\n- Толщина: ${standThickness} мм\n- Карманы: ${standPockets} шт\n${standPrinting ? '- С печатью\n' : ''}${standMounting ? '- С креплением\n' : ''}Примерная стоимость: ${calculateStandPrice().toLocaleString('ru-RU')} ₽`;
+                            messageInput.value = calcDetails;
+                          }
+                          
+                          if (contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                            setTimeout(() => {
+                              if (nameInput) nameInput.focus();
+                            }, 800);
+                          }
+                        }}
+                      >
+                        Отправить заявку с расчётом
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -608,9 +631,44 @@ const Index = () => {
                       <p className="text-sm text-muted-foreground mb-4">
                         Площадь: {calcWidth && calcHeight ? (parseFloat(calcWidth) * parseFloat(calcHeight)).toFixed(2) : '0'} м²
                       </p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-muted-foreground mb-6">
                         * Точная стоимость рассчитывается индивидуально
                       </p>
+                      <Button 
+                        size="lg" 
+                        className="w-full"
+                        onClick={() => {
+                          const contactSection = document.getElementById('contact');
+                          const nameInput = document.querySelector('input[placeholder="Ваше имя"]') as HTMLInputElement;
+                          const messageInput = document.querySelector('textarea[placeholder="Расскажите о вашем проекте"]') as HTMLTextAreaElement;
+                          
+                          if (messageInput) {
+                            const typeNames: Record<string, string> = {
+                              'световой-короб': 'Световой короб',
+                              'объемные-буквы': 'Объёмные буквы',
+                              'плоская-вывеска': 'Плоская вывеска',
+                              'неоновая': 'Неоновая вывеска'
+                            };
+                            const materialNames: Record<string, string> = {
+                              'акрил': 'Акрил',
+                              'композит': 'Композит',
+                              'пвх': 'ПВХ',
+                              'металл': 'Металл'
+                            };
+                            const calcDetails = `Вывеска:\n- Размер: ${calcWidth}×${calcHeight} м (${calcWidth && calcHeight ? (parseFloat(calcWidth) * parseFloat(calcHeight)).toFixed(2) : '0'} м²)\n- Тип: ${typeNames[calcType]}\n- Материал: ${materialNames[calcMaterial]}\n${calcLighting ? '- С подсветкой\n' : ''}${calcInstallation ? '- С монтажом\n' : ''}Примерная стоимость: ${calculatePrice().toLocaleString('ru-RU')} ₽`;
+                            messageInput.value = calcDetails;
+                          }
+                          
+                          if (contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                            setTimeout(() => {
+                              if (nameInput) nameInput.focus();
+                            }, 800);
+                          }
+                        }}
+                      >
+                        Отправить заявку с расчётом
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -719,146 +777,6 @@ const Index = () => {
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
             <p>&copy; 2024 Графика. Все права защищены.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
-
-export default Index;
-                          <span className="font-medium">15 000 ₽/м²</span>
-                        </p>
-                        <p className="flex justify-between">
-                          <span>Коэффициент материала:</span>
-                          <span className="font-medium">×{materialCoefficients[calcMaterial]}</span>
-                        </p>
-                        <p className="flex justify-between">
-                          <span>Коэффициент типа:</span>
-                          <span className="font-medium">×{typeCoefficients[calcType]}</span>
-                        </p>
-                        {calcLighting && (
-                          <p className="flex justify-between">
-                            <span>Подсветка:</span>
-                            <span className="font-medium">+2 000 ₽/м²</span>
-                          </p>
-                        )}
-                        {calcInstallation && (
-                          <p className="flex justify-between">
-                            <span>Монтаж:</span>
-                            <span className="font-medium">+1 500 ₽/м²</span>
-                          </p>
-                        )}
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-4">
-                        * Точная стоимость рассчитывается индивидуально
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section id="contacts" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
-              <p className="text-lg text-muted-foreground">
-                Оставьте заявку и мы свяжемся с вами в ближайшее время
-              </p>
-            </div>
-            <Card>
-              <CardContent className="p-8">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Ваше имя</label>
-                      <Input placeholder="Иван Иванов" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Телефон</label>
-                      <Input placeholder="+7 (999) 123-45-67" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
-                    <Input type="email" placeholder="example@mail.ru" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Сообщение</label>
-                    <Textarea placeholder="Расскажите о вашем проекте..." rows={5} />
-                  </div>
-                  <Button size="lg" className="w-full">
-                    Отправить заявку
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="text-center">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Phone" size={24} className="text-primary" />
-                </div>
-                <h3 className="font-bold mb-2">Телефон</h3>
-                <p className="text-muted-foreground">+7 (4162) 123-456</p>
-              </div>
-              <div className="text-center">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Mail" size={24} className="text-primary" />
-                </div>
-                <h3 className="font-bold mb-2">Email</h3>
-                <p className="text-muted-foreground">info@ragrafika.ru</p>
-              </div>
-              <div className="text-center">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Icon name="MapPin" size={24} className="text-primary" />
-                </div>
-                <h3 className="font-bold mb-2">Адрес</h3>
-                <p className="text-muted-foreground">г. Благовещенск, ул. Забурхановская 98</p>
-              </div>
-            </div>
-            <div className="flex justify-center gap-6 mt-12">
-              <a 
-                href="https://2gis.ru/blagoveshchensk/firm/70000001018537192" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-white rounded-lg hover:shadow-lg transition-shadow"
-              >
-                <Icon name="MapPin" size={20} className="text-primary" />
-                <span className="font-medium">Отзывы на 2ГИС</span>
-              </a>
-              <a 
-                href="https://yandex.ru/maps/org/grafika/1264341606/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-white rounded-lg hover:shadow-lg transition-shadow"
-              >
-                <Icon name="Star" size={20} className="text-primary" />
-                <span className="font-medium">Отзывы на Яндекс</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-secondary text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-4 md:mb-0">
-              <img 
-                src="https://cdn.poehali.dev/files/7cf77388-efea-4dbb-b3ab-3fe7c87d39b8.png" 
-                alt="Графика" 
-                className="h-10 w-auto"
-              />
-            </div>
-            <div className="text-center md:text-right">
-              <p className="text-white/80">© 2024 Рекламное агентство «Графика»</p>
-              <p className="text-white/60 text-sm mt-1">Все права защищены</p>
-            </div>
           </div>
         </div>
       </footer>
