@@ -12,30 +12,30 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
+          <div className="flex items-center flex-shrink-0">
             <img 
               src="https://cdn.poehali.dev/files/7cf77388-efea-4dbb-b3ab-3fe7c87d39b8.png" 
               alt="Графика" 
-              className="h-12 w-auto"
+              className="h-10 md:h-12 w-auto"
             />
           </div>
-          <nav className="hidden md:flex gap-8">
-            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Услуги</a>
-            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">Портфолио</a>
-            <a href="#advantages" className="text-sm font-medium hover:text-primary transition-colors">Преимущества</a>
-            <a href="/calculator" className="text-sm font-medium hover:text-primary transition-colors">Калькуляторы</a>
-            <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">Отзывы</a>
-            <a href="#contacts" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
+          <nav className="hidden lg:flex gap-6 xl:gap-8 flex-1 justify-center">
+            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Услуги</a>
+            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Портфолио</a>
+            <a href="#advantages" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Преимущества</a>
+            <a href="/calculator" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Калькуляторы</a>
+            <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Отзывы</a>
+            <a href="#contacts" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Контакты</a>
           </nav>
-          <div className="flex items-center gap-3">
-            <Button size="lg" className="hidden sm:flex">
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <Button size="lg" className="hidden lg:flex">
               <Icon name="Phone" size={18} className="mr-2" />
               Позвонить
             </Button>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button size="lg" variant="ghost" className="md:hidden">
+                <Button size="lg" variant="ghost" className="lg:hidden">
                   <Icon name="Menu" size={24} />
                 </Button>
               </SheetTrigger>
