@@ -66,47 +66,58 @@ const ContactSection = () => {
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-8">
+      <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <img 
                 src="https://cdn.poehali.dev/files/7cf77388-efea-4dbb-b3ab-3fe7c87d39b8.png" 
                 alt="Графика" 
                 className="h-12 w-auto mb-4 brightness-0 invert"
               />
-              <p className="text-gray-400">
+              <p className="text-gray-400 text-sm">
                 Профессиональное изготовление рекламной продукции в Благовещенске
               </p>
             </div>
             <div>
               <h4 className="font-bold mb-4">Навигация</h4>
               <nav className="space-y-2">
-                <a href="#services" className="block text-gray-400 hover:text-primary transition-colors">Услуги</a>
-                <a href="#portfolio" className="block text-gray-400 hover:text-primary transition-colors">Портфолио</a>
-                <a href="#advantages" className="block text-gray-400 hover:text-primary transition-colors">Преимущества</a>
-                <a href="#testimonials" className="block text-gray-400 hover:text-primary transition-colors">Отзывы</a>
+                <a href="/" className="block text-gray-400 hover:text-primary transition-colors text-sm">Главная</a>
+                <a href="#services" className="block text-gray-400 hover:text-primary transition-colors text-sm">Услуги</a>
+                <a href="#portfolio" className="block text-gray-400 hover:text-primary transition-colors text-sm">Портфолио</a>
+                <a href="#advantages" className="block text-gray-400 hover:text-primary transition-colors text-sm">Преимущества</a>
+                <a href="#testimonials" className="block text-gray-400 hover:text-primary transition-colors text-sm">Отзывы</a>
+                <a href="#contacts" className="block text-gray-400 hover:text-primary transition-colors text-sm">Контакты</a>
+              </nav>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Калькуляторы</h4>
+              <nav className="space-y-2">
+                <a href="/calculator" className="block text-gray-400 hover:text-primary transition-colors text-sm">Все калькуляторы</a>
+                <a href="/calculator#banner" className="block text-gray-400 hover:text-primary transition-colors text-sm">Баннеры</a>
+                <a href="/calculator#stand" className="block text-gray-400 hover:text-primary transition-colors text-sm">Информационные стенды</a>
+                <a href="/calculator#signage" className="block text-gray-400 hover:text-primary transition-colors text-sm">Вывески</a>
               </nav>
             </div>
             <div>
               <h4 className="font-bold mb-4">Контакты</h4>
-              <div className="space-y-2 text-gray-400">
-                <p className="flex items-center gap-2">
-                  <Icon name="Phone" size={16} />
-                  +7 (XXX) XXX-XX-XX
-                </p>
-                <p className="flex items-center gap-2">
-                  <Icon name="Mail" size={16} />
-                  info@grafika.ru
-                </p>
-                <p className="flex items-center gap-2">
-                  <Icon name="MapPin" size={16} />
-                  г. Благовещенск
-                </p>
+              <div className="space-y-3 text-gray-400 text-sm">
+                <a href="tel:+74162227678" className="flex items-start gap-2 hover:text-primary transition-colors">
+                  <Icon name="Phone" size={16} className="mt-0.5 flex-shrink-0" />
+                  <span>+7 (4162) 22-76-78</span>
+                </a>
+                <a href="mailto:info@grafika.ru" className="flex items-start gap-2 hover:text-primary transition-colors">
+                  <Icon name="Mail" size={16} className="mt-0.5 flex-shrink-0" />
+                  <span>info@grafika.ru</span>
+                </a>
+                <div className="flex items-start gap-2">
+                  <Icon name="MapPin" size={16} className="mt-0.5 flex-shrink-0" />
+                  <span>675000, Россия, Амурская область, г. Благовещенск, ул. Забурхановская, 98, оф. 4</span>
+                </div>
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
             <p>&copy; 2024 Графика. Все права защищены.</p>
           </div>
         </div>
