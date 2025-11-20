@@ -27,8 +27,9 @@ const StandPreview = ({
     const width = parseFloat(standWidth) || 100;
     const height = parseFloat(standHeight) || 100;
     
-    const maxDisplayWidth = 400;
-    const maxDisplayHeight = 500;
+    const isMobile = window.innerWidth < 768;
+    const maxDisplayWidth = isMobile ? 280 : 400;
+    const maxDisplayHeight = isMobile ? 350 : 500;
     
     const scale = Math.min(
       maxDisplayWidth / width,
@@ -146,10 +147,10 @@ const StandPreview = ({
 
   return (
     <Card className="shadow-xl">
-      <CardHeader>
-        <CardTitle className="text-2xl">Визуализация</CardTitle>
+      <CardHeader className="p-4 md:p-6">
+        <CardTitle className="text-xl md:text-2xl">Визуализация</CardTitle>
       </CardHeader>
-      <CardContent className="flex items-center justify-center min-h-[500px] p-6">
+      <CardContent className="flex items-center justify-center min-h-[300px] md:min-h-[400px] lg:min-h-[500px] p-4 md:p-6">
         {renderStandPreview()}
       </CardContent>
     </Card>

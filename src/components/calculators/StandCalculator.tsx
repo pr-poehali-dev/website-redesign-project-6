@@ -68,7 +68,7 @@ const StandCalculator = ({
                 placeholder="100" 
                 value={standWidth}
                 onChange={(e) => setStandWidth(e.target.value)}
-                onFocus={(e) => e.target.select()}
+                onClick={(e) => e.currentTarget.select()}
                 min="1"
                 step="1"
               />
@@ -80,7 +80,7 @@ const StandCalculator = ({
                 placeholder="100" 
                 value={standHeight}
                 onChange={(e) => setStandHeight(e.target.value)}
-                onFocus={(e) => e.target.select()}
+                onClick={(e) => e.currentTarget.select()}
                 min="1"
                 step="1"
               />
@@ -151,49 +151,49 @@ const StandCalculator = ({
               <Label className="block mb-2">Карманы для материалов</Label>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label className="block mb-1 text-sm">A5 (148×210 мм)</Label>
+                  <Label className="block mb-1 text-sm">A5</Label>
                   <Input 
                     type="number" 
                     placeholder="0" 
                     value={pocketsA5}
                     onChange={(e) => setPocketsA5(e.target.value)}
-                    onFocus={(e) => e.target.select()}
+                    onClick={(e) => e.currentTarget.select()}
                     min="0"
                     step="1"
                   />
                 </div>
                 <div>
-                  <Label className="block mb-1 text-sm">A4 (210×297 мм)</Label>
+                  <Label className="block mb-1 text-sm">A4</Label>
                   <Input 
                     type="number" 
                     placeholder="0" 
                     value={pocketsA4}
                     onChange={(e) => setPocketsA4(e.target.value)}
-                    onFocus={(e) => e.target.select()}
+                    onClick={(e) => e.currentTarget.select()}
                     min="0"
                     step="1"
                   />
                 </div>
                 <div>
-                  <Label className="block mb-1 text-sm">A3 (297×420 мм)</Label>
+                  <Label className="block mb-1 text-sm">A3</Label>
                   <Input 
                     type="number" 
                     placeholder="0" 
                     value={pocketsA3}
                     onChange={(e) => setPocketsA3(e.target.value)}
-                    onFocus={(e) => e.target.select()}
+                    onClick={(e) => e.currentTarget.select()}
                     min="0"
                     step="1"
                   />
                 </div>
                 <div>
-                  <Label className="block mb-1 text-sm">A2 (420×594 мм)</Label>
+                  <Label className="block mb-1 text-sm">A2</Label>
                   <Input 
                     type="number" 
                     placeholder="0" 
                     value={pocketsA2}
                     onChange={(e) => setPocketsA2(e.target.value)}
-                    onFocus={(e) => e.target.select()}
+                    onClick={(e) => e.currentTarget.select()}
                     min="0"
                     step="1"
                   />
