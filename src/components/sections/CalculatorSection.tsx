@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import BannerCalculator from "@/components/BannerCalculator";
 import Icon from "@/components/ui/icon";
 
@@ -21,6 +22,13 @@ const CalculatorSection = () => {
   const [pocketsA4, setPocketsA4] = useState<string>("4");
   const [pocketsA3, setPocketsA3] = useState<string>("0");
   const [pocketsA2, setPocketsA2] = useState<string>("0");
+
+  const [signageWidth, setSignageWidth] = useState<string>("");
+  const [signageHeight, setSignageHeight] = useState<string>("");
+  const [signageType, setSignageType] = useState<string>("световой-короб");
+  const [signageMaterial, setSignageMaterial] = useState<string>("акрил");
+  const [signageLighting, setSignageLighting] = useState<boolean>(true);
+  const [signageInstallation, setSignageInstallation] = useState<boolean>(true);
 
   const calculateStandPrice = () => {
     const width = parseFloat(standWidth) / 100;
@@ -57,6 +65,40 @@ const CalculatorSection = () => {
     price += parseInt(pocketsA4) * pocketPrices["A4"];
     price += parseInt(pocketsA3) * pocketPrices["A3"];
     price += parseInt(pocketsA2) * pocketPrices["A2"];
+    
+    return Math.round(price);
+  };
+
+  const calculateSignagePrice = () => {
+    const width = parseFloat(signageWidth);
+    const height = parseFloat(signageHeight);
+    
+    if (!width || !height || width <= 0 || height <= 0) return 0;
+    
+    const area = width * height;
+    const pricePerSqm = 15000;
+    
+    const materialCoefficients: Record<string, number> = {
+      "акрил": 1.0,
+      "композит": 1.2,
+      "пвх": 0.8,
+      "металл": 1.5
+    };
+    
+    const typeCoefficients: Record<string, number> = {
+      "световой-короб": 1.0,
+      "объемные-буквы": 1.3,
+      "плоская-вывеска": 0.7,
+      "неоновая": 1.8
+    };
+    
+    let price = area * pricePerSqm;
+    
+    price *= materialCoefficients[signageMaterial] || 1.0;
+    price *= typeCoefficients[signageType] || 1.0;
+    
+    if (signageLighting) price += area * 2000;
+    if (signageInstallation) price += area * 1500;
     
     return Math.round(price);
   };
@@ -211,6 +253,15 @@ const CalculatorSection = () => {
                 >
                   <Icon name="PanelTop" size={20} className="mr-2" />
                   Инфостенды
+                </Button>
+                <Button 
+                  size="lg"
+                  variant={selectedCalculator === "signage" ? "default" : "outline"}
+                  onClick={() => setSelectedCalculator("signage")}
+                  className="min-w-[200px]"
+                >
+                  <Icon name="Lightbulb" size={20} className="mr-2" />
+                  Вывески
                 </Button>
               </div>
             </div>
@@ -395,6 +446,121 @@ const CalculatorSection = () => {
                   </CardContent>
                 </Card>
               </div>
+            )}
+            
+            {selectedCalculator === "signage" && (
+              <Card className="shadow-xl">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-6">Наружная реклама</h3>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="space-y-6">
+                      <div>
+                        <Label className="block mb-2">Ширина (метры)</Label>
+                        <Input 
+                          type="number" 
+                          placeholder="2.0" 
+                          value={signageWidth}
+                          onChange={(e) => setSignageWidth(e.target.value)}
+                          min="0"
+                          step="0.1"
+                        />
+                      </div>
+                      <div>
+                        <Label className="block mb-2">Высота (метры)</Label>
+                        <Input 
+                          type="number" 
+                          placeholder="1.0" 
+                          value={signageHeight}
+                          onChange={(e) => setSignageHeight(e.target.value)}
+                          min="0"
+                          step="0.1"
+                        />
+                      </div>
+                      <div>
+                        <Label className="block mb-2">Тип вывески</Label>
+                        <Select value={signageType} onValueChange={setSignageType}>
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="световой-короб">Световой короб</SelectItem>
+                            <SelectItem value="объемные-буквы">Объемные буквы</SelectItem>
+                            <SelectItem value="плоская-вывеска">Плоская вывеска</SelectItem>
+                            <SelectItem value="неоновая">Неоновая вывеска</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label className="block mb-2">Материал</Label>
+                        <Select value={signageMaterial} onValueChange={setSignageMaterial}>
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="акрил">Акрил</SelectItem>
+                            <SelectItem value="композит">Композит</SelectItem>
+                            <SelectItem value="пвх">ПВХ</SelectItem>
+                            <SelectItem value="металл">Металл</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-2">
+                          <Checkbox 
+                            id="lighting" 
+                            checked={signageLighting}
+                            onCheckedChange={(checked) => setSignageLighting(checked as boolean)}
+                          />
+                          <Label htmlFor="lighting" className="cursor-pointer">
+                            Подсветка
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox 
+                            id="installation" 
+                            checked={signageInstallation}
+                            onCheckedChange={(checked) => setSignageInstallation(checked as boolean)}
+                          />
+                          <Label htmlFor="installation" className="cursor-pointer">
+                            Монтаж
+                          </Label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-muted/30 rounded-lg p-8 flex flex-col justify-between">
+                      <div>
+                        <h4 className="font-semibold mb-4">Расчёт стоимости:</h4>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Площадь:</span>
+                            <span>{(parseFloat(signageWidth || "0") * parseFloat(signageHeight || "0")).toFixed(2)} м²</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Материал:</span>
+                            <span>{signageMaterial}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Тип:</span>
+                            <span>{signageType}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-8 pt-6 border-t">
+                        <div className="flex justify-between items-center text-3xl font-bold mb-4">
+                          <span className="text-secondary">Итого:</span>
+                          <span className="text-primary">{calculateSignagePrice().toLocaleString('ru-RU')} ₽</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-4">
+                          Стоимость указана ориентировочно. Точная цена уточняется после осмотра объекта.
+                        </p>
+                        <Button className="w-full">
+                          Заказать расчёт
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             )}
             
             {selectedCalculator === "banner" && <BannerCalculator />}
