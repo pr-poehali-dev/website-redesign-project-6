@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const services = [
   {
@@ -35,9 +36,9 @@ const services = [
 ];
 
 const advantages = [
-  { number: "11+", text: "лет на рынке" },
-  { number: "3 года", text: "гарантия на продукцию" },
-  { number: "2000+", text: "реализованных проектов" }
+  { number: 11, suffix: "+", text: "лет на рынке" },
+  { number: 3, suffix: " года", text: "гарантия на продукцию" },
+  { number: 2000, suffix: "+", text: "реализованных проектов" }
 ];
 
 const portfolio = [
@@ -87,6 +88,19 @@ const testimonials = [
     rating: 5
   }
 ];
+
+const AdvantageCounter = ({ number, suffix, text }: { number: number; suffix: string; text: string }) => {
+  const { count, ref } = useCountUp({ end: number, duration: 2000 });
+  
+  return (
+    <div ref={ref} className="text-center animate-fade-in">
+      <div className="text-5xl md:text-6xl font-bold text-primary mb-3 animate-scale-in">
+        {count}{suffix}
+      </div>
+      <div className="text-lg text-white/90">{text}</div>
+    </div>
+  );
+};
 
 const ContentSections = () => {
   return (
@@ -155,16 +169,12 @@ const ContentSections = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-12">
             {advantages.map((adv, index) => (
-              <div 
-                key={index} 
-                className="text-center animate-fade-in"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className="text-5xl md:text-6xl font-bold text-primary mb-3 animate-scale-in">
-                  {adv.number}
-                </div>
-                <div className="text-lg text-white/90">{adv.text}</div>
-              </div>
+              <AdvantageCounter 
+                key={index}
+                number={adv.number}
+                suffix={adv.suffix}
+                text={adv.text}
+              />
             ))}
           </div>
           <div className="mt-16 grid md:grid-cols-3 gap-8">
