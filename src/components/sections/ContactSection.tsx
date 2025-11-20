@@ -146,7 +146,7 @@ const ContactSection = () => {
               <img 
                 src="https://cdn.poehali.dev/files/7cf77388-efea-4dbb-b3ab-3fe7c87d39b8.png" 
                 alt="Графика" 
-                className="h-12 w-auto mb-4 brightness-0 invert"
+                className="h-12 w-auto mb-4"
               />
               <p className="text-gray-400 text-sm">
                 Профессиональное изготовление рекламной продукции в Благовещенске
