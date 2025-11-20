@@ -10,7 +10,7 @@ const HeroSection = () => {
             Реклама, которая работает на вас
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
-            Изготовление и монтаж наружной и интерьерной рекламы в Благовещенске
+            Изготовление и монтаж наружной и интерьерной рекламы в Благовещенске и Амурской области
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-secondary hover:bg-white/90 text-lg px-8 py-6">
