@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import StandCalculator from "@/components/calculators/StandCalculator";
 import SignageCalculator from "@/components/calculators/SignageCalculator";
 import StandPreview from "@/components/calculators/StandPreview";
+import VolumeLettersCalculator from "@/components/calculators/VolumeLettersCalculator";
 import Icon from "@/components/ui/icon";
 
 const CalculatorSection = () => {
@@ -26,6 +27,10 @@ const CalculatorSection = () => {
   const [signageMaterial, setSignageMaterial] = useState<string>("акрил");
   const [signageLighting, setSignageLighting] = useState<boolean>(true);
   const [signageInstallation, setSignageInstallation] = useState<boolean>(true);
+
+  const [volumeSignText, setVolumeSignText] = useState<string>("");
+  const [volumeNeedsBracket, setVolumeNeedsBracket] = useState<boolean>(false);
+  const [volumeNeedsInstallation, setVolumeNeedsInstallation] = useState<boolean>(false);
 
   const calculateStandPrice = () => {
     const width = parseFloat(standWidth) / 100;
@@ -100,6 +105,18 @@ const CalculatorSection = () => {
     return Math.round(price);
   };
 
+  const calculateVolumeLettersPrice = () => {
+    if (!volumeSignText.trim()) return 0;
+    
+    const letterCount = volumeSignText.replace(/\s/g, '').length;
+    let price = letterCount * 2000;
+    
+    if (volumeNeedsBracket) price += 15000;
+    if (volumeNeedsInstallation) price += 10000;
+    
+    return Math.round(price);
+  };
+
   return (
     <>
       <section id="calculator" className="py-12 md:py-20 bg-muted/30">
@@ -129,6 +146,15 @@ const CalculatorSection = () => {
                 >
                   <Icon name="Store" size={20} />
                   Вывески
+                </Button>
+                <Button 
+                  size="lg"
+                  variant={selectedCalculator === "volume-letters" ? "default" : "outline"}
+                  onClick={() => setSelectedCalculator("volume-letters")}
+                  className="gap-2 w-full sm:w-auto"
+                >
+                  <Icon name="Type" size={20} />
+                  Объёмные буквы НТО
                 </Button>
               </div>
             </div>
@@ -189,6 +215,18 @@ const CalculatorSection = () => {
                 signageInstallation={signageInstallation}
                 setSignageInstallation={setSignageInstallation}
                 calculateSignagePrice={calculateSignagePrice}
+              />
+            )}
+            
+            {selectedCalculator === "volume-letters" && (
+              <VolumeLettersCalculator
+                signText={volumeSignText}
+                setSignText={setVolumeSignText}
+                needsBracket={volumeNeedsBracket}
+                setNeedsBracket={setVolumeNeedsBracket}
+                needsInstallation={volumeNeedsInstallation}
+                setNeedsInstallation={setVolumeNeedsInstallation}
+                calculatePrice={calculateVolumeLettersPrice}
               />
             )}
           </div>
