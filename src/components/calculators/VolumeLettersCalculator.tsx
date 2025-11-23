@@ -24,10 +24,11 @@ const VolumeLettersCalculator = ({
   calculatePrice,
 }: VolumeLettersCalculatorProps) => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <Card className="shadow-xl">
-        <CardContent className="p-6 md:p-8">
-          <div className="space-y-6">
+    <div className="max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+        <Card className="shadow-xl">
+          <CardContent className="p-6 md:p-8">
+            <div className="space-y-6">
             <div>
               <label className="block text-sm font-medium mb-2">Текст вывески</label>
               <Input 
@@ -137,6 +138,48 @@ const VolumeLettersCalculator = ({
           </div>
         </CardContent>
       </Card>
+
+      <Card className="shadow-xl">
+        <CardContent className="p-6 md:p-8">
+          <h3 className="text-2xl font-bold mb-6">Предпросмотр вывески</h3>
+          
+          <div className="bg-gradient-to-br from-blue-900 to-blue-950 rounded-xl p-8 md:p-12 min-h-[400px] flex items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_50%)]"></div>
+            
+            <div className="relative z-10 flex flex-col items-center gap-8">
+              {needsBracket && (
+                <div className="relative flex items-center justify-center" style={{ width: '200px', height: '200px' }}>
+                  <div className="absolute inset-0 bg-white rounded-full shadow-2xl"></div>
+                  <span className="relative text-gray-800 font-bold text-2xl">ЛОГО</span>
+                </div>
+              )}
+              
+              <div className="text-center">
+                <div 
+                  className="text-white font-bold tracking-wide"
+                  style={{ 
+                    fontFamily: 'Montserrat, sans-serif',
+                    fontSize: '92px',
+                    lineHeight: '1.2',
+                    textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 0 40px rgba(255,255,255,0.3)',
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  {signText || 'ВВЕДИТЕ ТЕКСТ'}
+                </div>
+                <p className="text-white/60 text-sm mt-4">
+                  Высота букв: 23 см | Шрифт: Geometria Bold
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <p className="text-xs text-muted-foreground text-center mt-4">
+            Предпросмотр вывески на павильоне НТО. Итоговый вид может отличаться.
+          </p>
+        </CardContent>
+      </Card>
+      </div>
     </div>
   );
 };
