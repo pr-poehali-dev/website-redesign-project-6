@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useCountUp } from "@/hooks/useCountUp";
+import CalculatorsBlockSection from "./CalculatorsBlockSection";
 
 const services = [
   {
@@ -132,7 +133,9 @@ const ContentSections = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 scroll-mt-24">
+      <CalculatorsBlockSection />
+
+      <section id="portfolio" className="py-20 scroll-mt-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Портфолио</h2>

@@ -7,7 +7,7 @@ import VolumeLettersCalculator from "@/components/calculators/VolumeLettersCalcu
 import Icon from "@/components/ui/icon";
 
 const CalculatorSection = () => {
-  const [selectedCalculator, setSelectedCalculator] = useState<string>("stand");
+  const [selectedCalculator, setSelectedCalculator] = useState<string>("signage");
 
   const [standWidth, setStandWidth] = useState<string>("");
   const [standHeight, setStandHeight] = useState<string>("");
@@ -137,21 +137,21 @@ const CalculatorSection = () => {
               <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 mb-6 md:mb-8">
                 <Button 
                   size="lg"
-                  variant={selectedCalculator === "stand" ? "default" : "outline"}
-                  onClick={() => setSelectedCalculator("stand")}
-                  className="gap-2 w-full sm:w-auto"
-                >
-                  <Icon name="Clipboard" size={20} />
-                  Инфостенды
-                </Button>
-                <Button 
-                  size="lg"
                   variant={selectedCalculator === "signage" ? "default" : "outline"}
                   onClick={() => setSelectedCalculator("signage")}
                   className="gap-2 w-full sm:w-auto"
                 >
                   <Icon name="Store" size={20} />
                   Вывески
+                </Button>
+                <Button 
+                  size="lg"
+                  variant={selectedCalculator === "stand" ? "default" : "outline"}
+                  onClick={() => setSelectedCalculator("stand")}
+                  className="gap-2 w-full sm:w-auto"
+                >
+                  <Icon name="Clipboard" size={20} />
+                  Инфостенды
                 </Button>
                 <Button 
                   size="lg"
