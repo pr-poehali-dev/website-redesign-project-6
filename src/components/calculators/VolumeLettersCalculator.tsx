@@ -209,12 +209,7 @@ const VolumeLettersCalculator = ({
             )}
             
             {viewMode === 'night' && (
-              <>
-                <div className="absolute top-10 right-10 w-16 h-16 bg-yellow-100 rounded-full blur-sm opacity-60" />
-                <div className="absolute top-32 left-16 w-2 h-2 bg-white rounded-full opacity-80" />
-                <div className="absolute top-20 right-32 w-1.5 h-1.5 bg-white rounded-full opacity-60" />
-                <div className="absolute bottom-24 left-24 w-1 h-1 bg-white rounded-full opacity-70" />
-              </>
+              <div className="absolute top-10 right-10 w-16 h-16 bg-yellow-100 rounded-full blur-sm opacity-60" />
             )}
 
             <div className="relative w-full flex items-center justify-center">
