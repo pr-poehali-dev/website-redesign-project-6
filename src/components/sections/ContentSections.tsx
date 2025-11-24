@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useCountUp } from "@/hooks/useCountUp";
 import CalculatorsBlockSection from "./CalculatorsBlockSection";
+import { useState } from "react";
 
 const services = [
   {
@@ -104,6 +105,8 @@ const AdvantageCounter = ({ number, suffix, text }: { number: number; suffix: st
 };
 
 const ContentSections = () => {
+  const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
+
   return (
     <>
       <section id="services" className="py-20 bg-muted/30 scroll-mt-24">
@@ -222,9 +225,14 @@ const ContentSections = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {testimonials.map((testimonial, index) => {
+              const isExpanded = expandedTestimonial === index;
               const shortText = testimonial.text.slice(0, 100) + (testimonial.text.length > 100 ? '...' : '');
               return (
-                <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+                <Card 
+                  key={index} 
+                  className="hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  onClick={() => setExpandedTestimonial(isExpanded ? null : index)}
+                >
                   <CardContent className="p-8">
                     <div className="flex gap-1 mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -232,8 +240,7 @@ const ContentSections = () => {
                       ))}
                     </div>
                     <p className="text-muted-foreground mb-6 italic">
-                      <span className="group-hover:hidden">"{shortText}"</span>
-                      <span className="hidden group-hover:inline">"{testimonial.text}"</span>
+                      "{isExpanded ? testimonial.text : shortText}"
                     </p>
                     <div>
                       <div className="font-bold">{testimonial.name}</div>
@@ -244,14 +251,14 @@ const ContentSections = () => {
               );
             })}
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 max-w-3xl mx-auto">
             <a 
               href="https://yandex.ru/maps/org/grafika/1326700931/reviews/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 group"
+              className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 group flex-1"
             >
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm3.9 16.5h-2.6V7.8c0-1.5-.9-2.3-2.1-2.3-.9 0-1.5.5-1.8 1.2v9.8H6.8V5.2h2.6v1.1c.6-.8 1.5-1.3 2.7-1.3 2.1 0 3.8 1.5 3.8 4.2v7.3z"/>
               </svg>
               <span className="font-medium group-hover:text-primary transition-colors">Отзывы на Яндекс.Картах</span>
@@ -260,9 +267,9 @@ const ContentSections = () => {
               href="https://2gis.ru/blagoveshchensk/firm/70000001018265902/tab/reviews" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 group"
+              className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 group flex-1"
             >
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
               </svg>
               <span className="font-medium group-hover:text-primary transition-colors">Отзывы на 2ГИС</span>
