@@ -110,11 +110,15 @@ const CalculatorSection = () => {
     if (!volumeSignText.trim()) return 0;
     
     const letterCount = volumeSignText.replace(/\s/g, '').length;
-    let price = letterCount * 2000;
+    const pricePerLetter = volumeNeedsLighting ? 4140 : 2530;
+    let price = letterCount * pricePerLetter;
     
     if (volumeNeedsBracket) price += 15000;
-    if (volumeNeedsLighting) price += 20000;
-    if (volumeNeedsInstallation) price += 10000;
+    
+    if (volumeNeedsInstallation) {
+      const installationCost = Math.max(price * 0.2, 4100);
+      price += installationCost;
+    }
     
     return Math.round(price);
   };

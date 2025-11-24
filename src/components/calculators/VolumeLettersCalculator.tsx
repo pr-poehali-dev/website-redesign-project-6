@@ -64,7 +64,7 @@ const VolumeLettersCalculator = ({
                       Требуется панель-кронштейн
                     </label>
                     <p className="text-xs text-muted-foreground">
-                      Металлическая несущая конструкция для крепления объёмных букв к фасаду павильона
+                      Двусторонняя световая конструкция диаметром 50 см
                     </p>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ const VolumeLettersCalculator = ({
                       Вывеска световая
                     </label>
                     <p className="text-xs text-muted-foreground">
-                      Буквы с внутренней LED-подсветкой для круглосуточной видимости
+                      Буквы с внутренней LED-подсветкой в темное время суток
                     </p>
                   </div>
                 </div>
@@ -115,10 +115,6 @@ const VolumeLettersCalculator = ({
                 </span>
               </div>
               <div className="border-t pt-3 space-y-1 text-sm text-muted-foreground">
-                <div className="flex justify-between">
-                  <span>Объёмные буквы (23 см):</span>
-                  <span>от 2000 ₽/буква</span>
-                </div>
                 {needsBracket && (
                   <div className="flex justify-between">
                     <span>Панель-кронштейн:</span>
