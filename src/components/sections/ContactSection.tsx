@@ -190,8 +190,14 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2025 Рекламное агентство Графика. Все права защищены.</p>
+          <div className="border-t border-gray-800 pt-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-400 text-sm">
+              <p>&copy; 2025 Рекламное агентство Графика. Все права защищены.</p>
+              <div className="flex gap-6">
+                <a href="/privacy" className="hover:text-primary transition-colors">Политика конфиденциальности</a>
+                <a href="/consent" className="hover:text-primary transition-colors">Согласие на обработку данных</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
