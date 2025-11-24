@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CookieBanner } from "@/components/CookieBanner";
+import FloatingContactButtons from "@/components/FloatingContactButtons";
 import Index from "./pages/Index";
 import Calculator from "./pages/Calculator";
 import Privacy from "./pages/Privacy";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <CookieBanner />
+        <FloatingContactButtons />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
