@@ -139,7 +139,7 @@ const ContactSection = () => {
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-[#1a1f2e] text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
