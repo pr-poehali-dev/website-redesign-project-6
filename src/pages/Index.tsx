@@ -20,24 +20,32 @@ const Index = () => {
               className="h-10 md:h-12 w-auto"
             />
           </div>
-          <nav className="hidden md:flex gap-6 xl:gap-8 flex-1 justify-center">
-            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Услуги</a>
-            <a href="#calculators" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Калькуляторы</a>
-            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Портфолио</a>
-            <a href="#advantages" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Преимущества</a>
-            <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Отзывы</a>
-            <a href="#contacts" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">Контакты</a>
-          </nav>
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <Button size="lg" className="hidden md:flex bg-primary text-white hover:bg-primary/90" asChild>
-              <a href="tel:+74162227678">
-                <Icon name="Phone" size={18} className="mr-2" />
-                +7 (4162) 22-76-78
-              </a>
-            </Button>
+          <div className="flex items-center gap-3 md:gap-4 flex-1 justify-end">
+            <a 
+              href="https://wa.me/74162227678" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+            >
+              <Icon name="MessageCircle" size={24} className="text-[#25D366]" />
+            </a>
+            <a 
+              href="https://t.me/grafika28" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+            >
+              <Icon name="Send" size={24} className="text-[#0088cc]" />
+            </a>
+            <a 
+              href="tel:+74162227678"
+              className="hover:opacity-80 transition-opacity"
+            >
+              <Icon name="Phone" size={24} className="text-primary" />
+            </a>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button size="lg" variant="ghost" className="md:hidden">
+                <Button size="lg" variant="ghost">
                   <Icon name="Menu" size={24} />
                 </Button>
               </SheetTrigger>
