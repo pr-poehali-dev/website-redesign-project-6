@@ -30,7 +30,7 @@ const VolumeLettersCalculator = ({
 }: VolumeLettersCalculatorProps) => {
   const [viewMode, setViewMode] = useState<'day' | 'night'>('day');
   
-  const displayText = (signText || 'ПРОДУКТЫ').toUpperCase().slice(0, 20);
+  const displayText = (signText || 'ПРОДУКТЫ').toUpperCase().slice(0, 25);
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -45,10 +45,10 @@ const VolumeLettersCalculator = ({
                 onChange={(e) => setSignText(e.target.value)}
                 placeholder="Введите текст для вывески"
                 className="text-lg uppercase"
-                maxLength={20}
+                maxLength={25}
               />
               <p className="text-xs text-muted-foreground mt-2">
-                Максимум 20 символов. Текст будет автоматически преобразован в заглавные буквы
+                Максимум 25 символов. Текст будет автоматически преобразован в заглавные буквы
               </p>
             </div>
 
