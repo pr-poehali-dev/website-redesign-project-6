@@ -25,23 +25,35 @@ const Index = () => {
               href="https://wa.me/74162227678" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
+              className="w-10 h-10 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+              title="Написать в WhatsApp"
             >
-              <Icon name="MessageCircle" size={24} className="text-[#25D366]" />
+              <Icon name="MessageCircle" size={20} />
             </a>
             <a 
               href="https://t.me/grafika28" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
+              className="w-10 h-10 bg-[#0088cc] hover:bg-[#006699] text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+              title="Написать в Telegram"
             >
-              <Icon name="Send" size={24} className="text-[#0088cc]" />
+              <Icon name="Send" size={20} />
+            </a>
+            <a 
+              href="https://max.app/?phone=74162227678" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-[#FF4D00] hover:bg-[#E64400] text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+              title="Написать в МАХ"
+            >
+              <Icon name="MessageSquare" size={20} />
             </a>
             <a 
               href="tel:+74162227678"
-              className="hover:opacity-80 transition-opacity"
+              className="hidden md:flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors whitespace-nowrap"
             >
-              <Icon name="Phone" size={24} className="text-primary" />
+              <Icon name="Phone" size={18} />
+              8 (4162) 22-76-78
             </a>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
