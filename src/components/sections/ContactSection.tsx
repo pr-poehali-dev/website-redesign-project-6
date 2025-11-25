@@ -112,6 +112,19 @@ const ContactSection = () => {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50 min-h-32"
                   />
+                  <div className="bg-white/5 rounded-xl p-4">
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        id="consent"
+                        required
+                        className="mt-1 w-4 h-4 rounded border-white/20 bg-white/10 text-primary focus:ring-primary"
+                      />
+                      <label htmlFor="consent" className="text-sm text-white/90 leading-relaxed">
+                        Нажимая кнопку «Отправить», я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных в <a href="/consent" className="text-primary hover:underline">Согласии на обработку персональных данных</a> *
+                      </label>
+                    </div>
+                  </div>
                   {submitStatus === 'success' && (
                     <div className="bg-green-500/20 border border-green-500 text-white p-4 rounded-lg flex items-center gap-3">
                       <Icon name="CheckCircle2" size={20} />
