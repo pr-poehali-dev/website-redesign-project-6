@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import StandCalculator from "@/components/calculators/StandCalculator";
 import SignageCalculator from "@/components/calculators/SignageCalculator";
@@ -7,7 +7,26 @@ import VolumeLettersCalculator from "@/components/calculators/VolumeLettersCalcu
 import Icon from "@/components/ui/icon";
 
 const CalculatorSection = () => {
-  const [selectedCalculator, setSelectedCalculator] = useState<string>("signage");
+  const getInitialCalculator = () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'stand') return 'stand';
+    if (hash === 'volume') return 'volume-letters';
+    return 'signage';
+  };
+
+  const [selectedCalculator, setSelectedCalculator] = useState<string>(getInitialCalculator());
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'signage') setSelectedCalculator('signage');
+      if (hash === 'stand') setSelectedCalculator('stand');
+      if (hash === 'volume') setSelectedCalculator('volume-letters');
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const [standWidth, setStandWidth] = useState<string>("");
   const [standHeight, setStandHeight] = useState<string>("");
