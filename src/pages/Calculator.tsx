@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import CalculatorSection from "@/components/sections/CalculatorSection";
 import Footer from "@/components/Footer";
+import Icon from "@/components/ui/icon";
 
 const Calculator = () => {
   return (
