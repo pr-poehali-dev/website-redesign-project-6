@@ -32,7 +32,7 @@ const OrderDialog = ({ calculatorType, price, details, children }: OrderDialogPr
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://functions.poehali.dev/ff182246-469f-4ae1-b3db-5e546ebc583b", {
+      const response = await fetch("https://functions.poehali.dev/c848bf2f-05f1-42c0-b695-5d345ad19872", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

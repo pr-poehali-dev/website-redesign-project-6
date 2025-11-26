@@ -1,20 +1,13 @@
 {
   "tests": [
     {
-      "name": "Test OPTIONS request",
-      "method": "OPTIONS",
-      "path": "/",
-      "expectedStatus": 200,
-      "bodyMatcher": "partial"
-    },
-    {
-      "name": "Test POST with valid data",
+      "name": "Send contact form email",
       "method": "POST",
       "path": "/",
       "body": {
-        "name": "Test User",
-        "phone": "+79991234567",
-        "message": "Test message"
+        "name": "Иван Иванов",
+        "phone": "+79001234567",
+        "message": "Интересует вывеска"
       },
       "expectedStatus": 200,
       "expectedBody": {
@@ -23,11 +16,32 @@
       "bodyMatcher": "partial"
     },
     {
-      "name": "Test POST without required fields",
+      "name": "Send calculator email",
       "method": "POST",
       "path": "/",
       "body": {
-        "message": "Test message"
+        "calculatorType": "Вывески",
+        "name": "Петр Петров",
+        "phone": "+79009876543",
+        "email": "test@example.com",
+        "price": 25000,
+        "details": {
+          "Ширина": "2 м",
+          "Высота": "1 м"
+        }
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Reject request without required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "message": "Test"
       },
       "expectedStatus": 400,
       "expectedBody": {
