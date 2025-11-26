@@ -109,13 +109,16 @@ const VolumeLettersCalculator = ({
               </div>
             </div>
 
-            <div className="bg-primary/5 rounded-xl p-4 md:p-6">
+            <div className="bg-primary/5 rounded-xl p-4 md:p-6 space-y-2">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                 <span className="text-base md:text-lg font-medium">Предварительная стоимость:</span>
                 <span className="text-xl md:text-2xl font-bold text-primary">
                   {calculatePrice().toLocaleString('ru-RU')} ₽
                 </span>
               </div>
+              <p className="text-xs text-muted-foreground">
+                * стоимость предварительная, точную стоимость сообщит менеджер после уточнения деталей
+              </p>
             </div>
 
             <OrderDialog
