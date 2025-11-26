@@ -1,8 +1,10 @@
 import json
 import smtplib
 import os
+import base64
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
 from typing import Dict, Any
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
@@ -70,8 +72,11 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         }
     
     calculator_type = body_data.get('calculatorType')
+    image_data = body_data.get('imageData')
     
-    msg = MIMEMultipart('alternative')
+    msg = MIMEMultipart('related')
+    msg_alternative = MIMEMultipart('alternative')
+    msg.attach(msg_alternative)
     
     if calculator_type:
         email_client = body_data.get('email', 'не указан')
@@ -81,6 +86,10 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         msg['Subject'] = f'Новая заявка: {calculator_type}'
         
         html_details = '<br>'.join([f'<strong>{k}:</strong> {v}' for k, v in details.items()])
+        
+        image_html = ''
+        if image_data:
+            image_html = '<h3 style="color: #2563eb; margin-top: 20px;">Прикрепленное изображение:</h3><img src="cid:uploaded_image" style="max-width: 600px; border: 1px solid #ddd; border-radius: 5px; margin: 10px 0;">'
         
         html_content = f'''
         <html>
@@ -95,6 +104,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             <div style="background: #f3f4f6; padding: 15px; border-radius: 5px;">
               {html_details}
             </div>
+            {image_html}
             <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
             <p style="color: #666; font-size: 12px;">Заявка отправлена автоматически с сайта ragrafika.ru</p>
           </body>
@@ -124,7 +134,22 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     msg['To'] = email_to
     
     part = MIMEText(html_content, 'html', 'utf-8')
-    msg.attach(part)
+    msg_alternative.attach(part)
+    
+    if image_data and image_data.startswith('data:image/'):
+        try:
+            header, encoded = image_data.split(',', 1)
+            image_binary = base64.b64decode(encoded)
+            
+            mime_type = header.split(';')[0].split(':')[1]
+            image_subtype = mime_type.split('/')[1]
+            
+            image_part = MIMEImage(image_binary, _subtype=image_subtype)
+            image_part.add_header('Content-ID', '<uploaded_image>')
+            image_part.add_header('Content-Disposition', 'inline', filename='stand_image.jpg')
+            msg.attach(image_part)
+        except Exception:
+            pass
     
     smtp_server = 'smtp.mail.ru'
     smtp_port = 587
