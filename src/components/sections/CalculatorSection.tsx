@@ -97,12 +97,6 @@ const CalculatorSection = () => {
     price += (parseInt(pocketsA3) || 0) * pocketPrices["A3"];
     price += (parseInt(pocketsA2) || 0) * pocketPrices["A2"];
     
-    const bracketCost = 20000;
-    price += bracketCost;
-    
-    const installationCost = Math.max((price) * 0.2, 4100);
-    price += installationCost;
-    
     return Math.max(1500, Math.round(price));
   };
 
@@ -147,10 +141,11 @@ const CalculatorSection = () => {
     const pricePerLetter = volumeNeedsLighting ? 4140 : 2530;
     let price = letterCount * pricePerLetter;
     
-    if (volumeNeedsBracket) price += 15000;
+    const bracketCost = 20000;
+    if (volumeNeedsBracket) price += bracketCost;
     
     if (volumeNeedsInstallation) {
-      const installationCost = Math.max(price * 0.2, 4100);
+      const installationCost = Math.max((price) * 0.2, 4100);
       price += installationCost;
     }
     

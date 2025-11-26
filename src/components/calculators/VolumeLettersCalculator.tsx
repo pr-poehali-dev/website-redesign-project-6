@@ -117,7 +117,7 @@ const VolumeLettersCalculator = ({
                 </span>
               </div>
               <p className="text-xs text-muted-foreground">
-                * Итоговая стоимость зависит от типа подсветки и сложности монтажа
+                * Включает панель-кронштейн (20 000 ₽) и монтаж (если выбрано)
               </p>
             </div>
 
