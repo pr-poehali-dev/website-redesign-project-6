@@ -39,13 +39,9 @@ const StandPriceSection = ({
   };
 
   const positionNames: Record<string, string> = {
-    center: 'По центру',
-    'top-center': 'Сверху по центру',
-    'bottom-center': 'Снизу по центру',
-    'top-left': 'Сверху слева',
-    'top-right': 'Сверху справа',
-    'bottom-left': 'Снизу слева',
-    'bottom-right': 'Снизу справа'
+    'fill': 'Растянуть',
+    'cover-vertical': 'Выровнять по вертикали',
+    'cover-horizontal': 'Выровнять по горизонтали'
   };
 
   const pocketCounts = {

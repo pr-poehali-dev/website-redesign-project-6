@@ -243,13 +243,9 @@ const StandParametersForm = ({
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="center">По центру</SelectItem>
-                      <SelectItem value="top-center">Сверху по центру</SelectItem>
-                      <SelectItem value="bottom-center">Снизу по центру</SelectItem>
-                      <SelectItem value="top-left">Сверху слева</SelectItem>
-                      <SelectItem value="top-right">Сверху справа</SelectItem>
-                      <SelectItem value="bottom-left">Снизу слева</SelectItem>
-                      <SelectItem value="bottom-right">Снизу справа</SelectItem>
+                      <SelectItem value="fill">Растянуть</SelectItem>
+                      <SelectItem value="cover-vertical">Выровнять по вертикали</SelectItem>
+                      <SelectItem value="cover-horizontal">Выровнять по горизонтали</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

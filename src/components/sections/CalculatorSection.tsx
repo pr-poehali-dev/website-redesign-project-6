@@ -47,7 +47,7 @@ const CalculatorSection = () => {
   const [pocketsA3, setPocketsA3] = useState<string>("");
   const [pocketsA2, setPocketsA2] = useState<string>("");
   const [standImage, setStandImage] = useState<string>("");
-  const [imagePosition, setImagePosition] = useState<string>("center");
+  const [imagePosition, setImagePosition] = useState<string>("fill");
 
   const [signageWidth, setSignageWidth] = useState<string>("");
   const [signageHeight, setSignageHeight] = useState<string>("");

@@ -96,14 +96,43 @@ const StandPreviewCard = ({
 
     const baseFontSize = Math.min(previewWidth / 10, previewHeight / 8);
 
-    const imagePositionStyles: Record<string, React.CSSProperties> = {
-      center: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
-      'top-center': { top: '25%', left: '50%', transform: 'translate(-50%, -50%)' },
-      'bottom-center': { bottom: '15%', left: '50%', transform: 'translateX(-50%)' },
-      'top-left': { top: '25%', left: '15%' },
-      'top-right': { top: '25%', right: '15%' },
-      'bottom-left': { bottom: '15%', left: '15%' },
-      'bottom-right': { bottom: '15%', right: '15%' }
+    const getImageStyle = (): React.CSSProperties => {
+      if (imagePosition === 'fill') {
+        return {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'fill',
+          zIndex: 0
+        };
+      }
+      if (imagePosition === 'cover-vertical') {
+        return {
+          position: 'absolute',
+          top: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          height: '100%',
+          width: 'auto',
+          objectFit: 'cover',
+          zIndex: 0
+        };
+      }
+      if (imagePosition === 'cover-horizontal') {
+        return {
+          position: 'absolute',
+          top: '50%',
+          left: 0,
+          transform: 'translateY(-50%)',
+          width: '100%',
+          height: 'auto',
+          objectFit: 'cover',
+          zIndex: 0
+        };
+      }
+      return {};
     };
 
     return (
@@ -116,8 +145,17 @@ const StandPreviewCard = ({
           background: bgColorMap[standBgColor]
         }}
       >
+        {standImage && (
+          <img
+            src={standImage}
+            alt="Фон стенда"
+            style={getImageStyle()}
+          />
+        )}
+
         <div 
           className="absolute top-0 left-0 right-0 flex items-center justify-center text-secondary font-bold px-4"
+          style={{ zIndex: 2 }}
         >
           <div
             style={{ 
@@ -131,25 +169,7 @@ const StandPreviewCard = ({
           </div>
         </div>
 
-        {standImage && (
-          <div
-            className="absolute"
-            style={{
-              ...imagePositionStyles[imagePosition],
-              maxWidth: '60%',
-              maxHeight: '40%',
-              zIndex: 1
-            }}
-          >
-            <img
-              src={standImage}
-              alt="Загруженное изображение"
-              className="max-w-full max-h-full object-contain rounded shadow-md"
-            />
-          </div>
-        )}
-
-        <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-wrap justify-center items-end gap-2">
+        <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-wrap justify-center items-end gap-2" style={{ zIndex: 3 }}>
           {allPockets.map((pocket, index) => {
             const pocketWidth = pocket.width * scale;
             const pocketHeight = pocket.height * scale;
