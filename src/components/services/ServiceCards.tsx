@@ -15,22 +15,10 @@ const ServiceCards = ({ excludeService }: ServiceCardsProps) => {
       link: '/services/signage'
     },
     {
-      id: 'stands',
-      icon: 'Clipboard',
-      title: 'Информационные стенды',
-      link: '/#calculator'
-    },
-    {
-      id: 'design',
-      icon: 'Palette',
-      title: 'Дизайн и брендирование',
-      link: '/services/design'
-    },
-    {
-      id: 'installation',
-      icon: 'Wrench',
-      title: 'Монтаж и установка',
-      link: '/services/installation'
+      id: 'interior',
+      icon: 'Home',
+      title: 'Интерьерная реклама',
+      link: '/services/interior'
     },
     {
       id: 'transport',
@@ -39,16 +27,22 @@ const ServiceCards = ({ excludeService }: ServiceCardsProps) => {
       link: '/services/transport'
     },
     {
-      id: 'interior',
-      icon: 'PaintBucket',
-      title: 'Интерьерная печать',
-      link: '/services/interior'
-    },
-    {
       id: 'banners',
       icon: 'Flag',
       title: 'Баннеры и штендеры',
       link: '/services/banners'
+    },
+    {
+      id: 'design',
+      icon: 'PenTool',
+      title: 'Разработка дизайна',
+      link: '/services/design'
+    },
+    {
+      id: 'installation',
+      icon: 'Wrench',
+      title: 'Монтаж и установка',
+      link: '/services/installation'
     }
   ];
 
