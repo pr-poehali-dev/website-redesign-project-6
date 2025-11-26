@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
+import OrderDialog from "./OrderDialog";
 
 interface VolumeLettersCalculatorProps {
   signText: string;
@@ -120,31 +121,26 @@ const VolumeLettersCalculator = ({
               </p>
             </div>
 
-            <Button 
-              size="lg" 
-              className="w-full"
-              disabled={!signText.trim()}
-              onClick={() => {
-                const contactSection = document.getElementById('contacts');
-                const nameInput = document.querySelector('input[placeholder="Ваше имя"]') as HTMLInputElement;
-                const messageInput = document.querySelector('textarea[placeholder="Ваше сообщение"]') as HTMLTextAreaElement;
-                
-                if (messageInput) {
-                  const details = `Объёмные буквы на павильон НТО:\n- Текст: "${displayText}"\n- Размер букв: 23 см\n${needsBracket ? '- Панель-кронштейн: Да\n' : ''}${needsLighting ? '- Вывеска световая: Да\n' : ''}${needsInstallation ? '- Монтаж: Да\n' : ''}\nПредварительная стоимость: ${calculatePrice().toLocaleString('ru-RU')} ₽`;
-                  messageInput.value = details;
-                }
-                
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                  setTimeout(() => {
-                    if (nameInput) nameInput.focus();
-                  }, 800);
-                }
+            <OrderDialog
+              calculatorType="Объёмные буквы для павильонов НТО"
+              price={calculatePrice()}
+              details={{
+                "Текст": displayText,
+                "Размер букв": "23 см",
+                "Панель-кронштейн": needsBracket ? "да" : "нет",
+                "Вывеска световая": needsLighting ? "да" : "нет",
+                "Монтаж": needsInstallation ? "да" : "нет"
               }}
             >
-              <Icon name="Send" size={20} className="mr-2" />
-              Отправить заявку
-            </Button>
+              <Button 
+                size="lg" 
+                className="w-full"
+                disabled={!signText.trim()}
+              >
+                <Icon name="Send" size={20} className="mr-2" />
+                Отправить заявку
+              </Button>
+            </OrderDialog>
           </div>
         </CardContent>
       </Card>

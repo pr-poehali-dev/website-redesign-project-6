@@ -4,6 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import OrderDialog from "./OrderDialog";
 
 interface SignageCalculatorProps {
   signageWidth: string;
@@ -125,9 +126,22 @@ const SignageCalculator = ({
             <p className="text-xs text-muted-foreground text-center mb-4 md:mb-6">
               Стоимость указана ориентировочно. Точная цена уточняется после осмотра объекта.
             </p>
-            <Button className="w-full" size="lg">
-              Заказать расчёт
-            </Button>
+            <OrderDialog 
+              calculatorType="Вывески"
+              price={calculateSignagePrice()}
+              details={{
+                "Ширина": `${signageWidth} м`,
+                "Высота": `${signageHeight} м`,
+                "Тип": signageType,
+                "Материал": signageMaterial,
+                "Подсветка": signageLighting ? "да" : "нет",
+                "Монтаж": signageInstallation ? "да" : "нет"
+              }}
+            >
+              <Button className="w-full" size="lg">
+                Заказать расчёт
+              </Button>
+            </OrderDialog>
           </div>
         </div>
       </CardContent>

@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import OrderDialog from "./OrderDialog";
 
 interface StandCalculatorProps {
   standWidth: string;
@@ -211,9 +212,24 @@ const StandCalculator = ({
             <p className="text-xs text-muted-foreground text-center mb-4 md:mb-6">
               Цена включает изготовление, но не включает доставку и монтаж
             </p>
-            <Button className="w-full" size="lg">
-              Заказать расчёт
-            </Button>
+            <OrderDialog
+              calculatorType="Информационные стенды"
+              price={calculateStandPrice()}
+              details={{
+                "Ширина": `${standWidth} см`,
+                "Высота": `${standHeight} см`,
+                "Толщина": `${standThickness} мм`,
+                "Печать": standPrinting,
+                "Карманы A5": pocketsA5 || "0",
+                "Карманы A4": pocketsA4 || "0",
+                "Карманы A3": pocketsA3 || "0",
+                "Карманы A2": pocketsA2 || "0"
+              }}
+            >
+              <Button className="w-full" size="lg">
+                Заказать расчёт
+              </Button>
+            </OrderDialog>
           </div>
         </div>
       </CardContent>
