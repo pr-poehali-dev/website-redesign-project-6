@@ -112,7 +112,14 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         '''
     else:
         message = body_data.get('message', '')
-        msg['Subject'] = f'Новая заявка от {name}'
+        email_client = body_data.get('email', '')
+        industry = body_data.get('industry', '')
+        
+        subject_suffix = f' ({industry})' if industry else ''
+        msg['Subject'] = f'Новая заявка от {name}{subject_suffix}'
+        
+        email_row = f'<p><strong>Email:</strong> {email_client}</p>' if email_client else ''
+        industry_row = f'<p><strong>Сфера деятельности:</strong> {industry}</p>' if industry else ''
         
         html_content = f'''
         <html>
@@ -120,6 +127,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             <h2 style="color: #2563eb;">Новая заявка с сайта</h2>
             <p><strong>Имя:</strong> {name}</p>
             <p><strong>Телефон:</strong> {phone}</p>
+            {email_row}
+            {industry_row}
             <p><strong>Сообщение:</strong></p>
             <div style="background: #f3f4f6; padding: 15px; border-radius: 5px; white-space: pre-wrap;">
               {message if message else 'Не указано'}

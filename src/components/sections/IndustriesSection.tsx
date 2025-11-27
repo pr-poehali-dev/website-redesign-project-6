@@ -126,10 +126,13 @@ const IndustriesSection = () => {
           setIsDialogOpen(false);
         }, 3000);
       } else {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Form submission error:', response.status, errorData);
         setSubmitStatus('error');
         setTimeout(() => setSubmitStatus('idle'), 3000);
       }
     } catch (error) {
+      console.error('Network error:', error);
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 3000);
     } finally {
