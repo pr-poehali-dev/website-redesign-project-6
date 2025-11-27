@@ -90,7 +90,8 @@ const industries = [
 
 const IndustriesSection = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: '', phone: '+7 ', email: '' });
+  const [selectedIndustry, setSelectedIndustry] = useState('');
+  const [formData, setFormData] = useState({ name: '', phone: '+7 ', email: '', industry: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [consentChecked, setConsentChecked] = useState(true);
@@ -116,7 +117,8 @@ const IndustriesSection = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '+7 ', email: '' });
+        setFormData({ name: '', phone: '+7 ', email: '', industry: '' });
+        setSelectedIndustry('');
         setConsentChecked(true);
         setTimeout(() => {
           setSubmitStatus('idle');
@@ -151,7 +153,12 @@ const IndustriesSection = () => {
             {industries.map((industry, index) => (
               <Card 
                 key={index}
-                className="border-2"
+                className="border-2 cursor-pointer transition-all hover:border-primary hover:shadow-lg"
+                onClick={() => {
+                  setSelectedIndustry(industry.title);
+                  setFormData({ ...formData, industry: industry.title });
+                  setIsDialogOpen(true);
+                }}
               >
                 <CardContent className="p-6 text-center">
                   <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -169,7 +176,11 @@ const IndustriesSection = () => {
               Не нашли свою сферу? Мы работаем со всеми направлениями бизнеса
             </p>
             <button
-              onClick={() => setIsDialogOpen(true)}
+              onClick={() => {
+                setSelectedIndustry('');
+                setFormData({ ...formData, industry: '' });
+                setIsDialogOpen(true);
+              }}
               className="inline-flex items-center gap-2 bg-primary text-white py-4 px-8 rounded-xl font-semibold hover:bg-primary/90 transition-colors"
             >
               Получить консультацию
@@ -182,7 +193,9 @@ const IndustriesSection = () => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Заказать расчёт</DialogTitle>
+            <DialogTitle className="text-2xl font-bold">
+              Заказать расчёт{selectedIndustry && ` — ${selectedIndustry}`}
+            </DialogTitle>
             <p className="text-muted-foreground">
               Оставьте контакты, и мы свяжемся с вами для уточнения деталей
             </p>
@@ -232,6 +245,12 @@ const IndustriesSection = () => {
                 className="border-2"
               />
             </div>
+            {selectedIndustry && (
+              <div className="bg-primary/5 border border-primary/20 rounded-lg p-3 text-sm">
+                <span className="text-muted-foreground">Сфера деятельности:</span>{' '}
+                <span className="font-semibold text-primary">{selectedIndustry}</span>
+              </div>
+            )}
             <div className="flex items-start gap-3 pt-2">
               <input
                 type="checkbox"
