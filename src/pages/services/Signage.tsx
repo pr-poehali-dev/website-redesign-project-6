@@ -27,6 +27,169 @@ const Signage = () => {
               Изготавливаем фасадные вывески, объемные буквы и световые короба любой сложности — от лаконичных до премиальных решений. Подбираем конструкцию под архитектуру фасада и требования законодательства, обеспечиваем равномерную подсветку и долговечность.
             </p>
 
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-6 md:p-8 mb-8 border-2 border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary text-primary-foreground rounded-full p-3 flex-shrink-0">
+                  <Icon name="Gift" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Специальное предложение</h3>
+                  <p className="text-gray-700 mb-3">
+                    При заказе вывески с подсветкой — <span className="font-semibold text-primary">дизайн-проект и визуализация бесплатно</span>. Вы увидите, как будет выглядеть вывеска на вашем здании до начала производства.
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Акция действует до конца месяца
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8">Виды вывесок</h2>
+              
+              <div className="grid gap-8">
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/3c5475cf-da15-4396-8615-b22a7a2a6993.jpg" 
+                        alt="Объемные буквы на металлокаркасе"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Box" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Объемные буквы на металлокаркасе</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Классическое решение для фасадов. Буквы крепятся на прочном металлическом каркасе, который может быть окрашен в любой цвет или иметь подсветку. Идеально для крупных надписей на высоких зданиях.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Высокая прочность и долговечность</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Подходит для больших размеров</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Устойчивость к ветровым нагрузкам</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex md:flex-row-reverse">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/c65bf7c2-c0d4-49e9-8588-1e6c8f21ece7.jpg" 
+                        alt="Объемные буквы на подложке"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Square" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Объемные буквы на подложке</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Буквы монтируются на единую панель-подложку из композита или акрила. Смотрится современно и солидно, легко монтируется одним блоком. Популярный выбор для офисных центров и торговых площадей.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Быстрый и простой монтаж</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Современный внешний вид</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Подложка может быть любого цвета</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/d8859d49-8f73-407b-ba29-8614f45db616.jpg" 
+                        alt="Объемные буквы на контурной подложке"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Sparkles" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Объемные буквы на контурной подложке</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Подложка вырезается точно по контуру надписи или логотипа. Создаёт эффект "парящих" букв с элегантным акцентом. Премиальное решение для брендов, которые ценят детали.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Элегантный и стильный дизайн</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Подчеркивает уникальность бренда</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Контурная подсветка по периметру</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex md:flex-row-reverse">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/166cbb72-8897-4196-b59a-d81935575765.jpg" 
+                        alt="Объемные буквы с подсветкой контражур"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Lightbulb" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Объемные буквы с подсветкой контражур</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Свечение идёт из-за букв, создавая эффектный световой ореол на стене. Смотрится роскошно в темное время суток и привлекает максимум внимания. Топовое решение для ресторанов, отелей и премиум-брендов.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Эффектный световой ореол</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Максимальная видимость ночью</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Премиальный внешний вид</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-gray-50 rounded-xl p-6 md:p-8 mb-8">
               <h2 className="text-2xl font-semibold mb-6">Технологии и особенности</h2>
               
@@ -93,19 +256,27 @@ const Signage = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" asChild className="flex-1">
-                <a href="tel:+74162227678">
-                  <Icon name="Phone" size={20} className="mr-2" />
-                  Позвонить
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="flex-1">
-                <a href="https://wa.me/79656713170" target="_blank" rel="noopener noreferrer">
-                  <Icon name="MessageCircle" size={20} className="mr-2" />
-                  Написать в WhatsApp
-                </a>
-              </Button>
+            <div className="bg-gradient-to-r from-primary to-primary/80 rounded-xl p-6 md:p-8 mb-8 text-white">
+              <div className="text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">Нужна консультация?</h2>
+                <p className="text-lg mb-6 opacity-90">
+                  Поможем выбрать оптимальный тип вывески под ваш бюджет и задачи
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" variant="secondary" asChild>
+                    <a href="tel:+74162227678">
+                      <Icon name="Phone" size={20} className="mr-2" />
+                      Позвонить
+                    </a>
+                  </Button>
+                  <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border-white text-white" asChild>
+                    <a href="https://wa.me/79656713170" target="_blank" rel="noopener noreferrer">
+                      <Icon name="MessageCircle" size={20} className="mr-2" />
+                      Написать в WhatsApp
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
 
             <ServiceCards excludeService="signage" />
