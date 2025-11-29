@@ -31,6 +31,169 @@ const Installation = () => {
               Обеспечиваем безопасный и аккуратный монтаж на фасадах и внутри помещений, подключение электричества и последующее обслуживание.
             </p>
 
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-6 md:p-8 mb-8 border-2 border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary text-primary-foreground rounded-full p-3 flex-shrink-0">
+                  <Icon name="Gift" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Специальное предложение</h3>
+                  <p className="text-gray-700 mb-3">
+                    При заказе полного цикла (производство + монтаж) — <span className="font-semibold text-primary">бесплатная проверка подсветки и гарантия 2 года</span>. Установим качественно и безопасно.
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Акция действует до конца месяца
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8">Виды монтажных работ</h2>
+              
+              <div className="grid gap-8">
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/2ff6ffe1-a901-47bb-bb6f-f8a783def8a5.jpg" 
+                        alt="Фасадный монтаж"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Building" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Фасадный монтаж вывесок</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Установка вывесок, объёмных букв и световых коробов на фасадах зданий. Используем прочные крепления с усилением. Подбираем крепёж под материал стены (кирпич, бетон, сэндвич-панели). Вывеска надёжно держится даже при сильном ветре.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Прочные крепления</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Подбор под тип стены</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Ветроустойчивость</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex md:flex-row-reverse">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/db8114f6-e43f-421f-9f81-9f106195e8d6.jpg" 
+                        alt="Высотные работы"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="TrendingUp" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Высотные работы</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Монтаж на высоких зданиях с использованием промышленных альпинистов, автовышек и кранов. Все монтажники имеют допуск к высотным работам. Используем страховочное оборудование. Огораживаем рабочую зону внизу. Работаем безопасно и быстро.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Допуски к высотным работам</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Страховочное оборудование</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Спецтехника</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/91260b43-3da7-4373-b990-6d631f4d2ec7.jpg" 
+                        alt="Электромонтаж"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Zap" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Электромонтаж и подсветка</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Подключение подсветки вывесок и световых коробов к электросети. Прокладываем кабель скрыто или в кабель-каналах. Устанавливаем защиту от влаги и короткого замыкания. Можем установить таймер или фотореле для автоматического включения/выключения. Все работы по электрике выполняют сертифицированные электрики.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Сертифицированные электрики</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Защита от влаги</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Автоматическое управление</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex md:flex-row-reverse">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/9680de5e-d1c7-41a3-a128-3ff8e0457e43.jpg" 
+                        alt="Тестирование и сервис"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Shield" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Тестирование и сервисное обслуживание</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        После установки проверяем работу подсветки, надёжность креплений и качество монтажа. Делаем фотоотчёт. Даём гарантию на монтажные работы. Предлагаем сервисное обслуживание: регулярную проверку, мойку, замену светодиодов. Вывеска всегда будет выглядеть отлично.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Проверка после установки</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Гарантия на монтаж</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Сервисное обслуживание</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-gray-50 rounded-xl p-6 md:p-8 mb-8">
               <h2 className="text-2xl font-semibold mb-6">Технологии и особенности</h2>
               
@@ -97,7 +260,30 @@ const Installation = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="bg-gradient-to-r from-primary to-primary/80 rounded-xl p-6 md:p-8 mb-8 text-white">
+              <div className="text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">Нужен качественный монтаж?</h2>
+                <p className="text-lg mb-6 opacity-90">
+                  Установим вывеску безопасно и аккуратно на любой высоте
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" variant="secondary" asChild>
+                    <a href="tel:+74162227678">
+                      <Icon name="Phone" size={20} className="mr-2" />
+                      Позвонить
+                    </a>
+                  </Button>
+                  <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border-white text-white" asChild>
+                    <a href="https://wa.me/79656713170" target="_blank" rel="noopener noreferrer">
+                      <Icon name="MessageCircle" size={20} className="mr-2" />
+                      Написать в WhatsApp
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className="hidden flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" asChild className="flex-1">
                 <a href="tel:+74162227678">
                   <Icon name="Phone" size={20} className="mr-2" />

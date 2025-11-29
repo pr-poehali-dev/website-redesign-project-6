@@ -46,21 +46,34 @@ const ServiceCards = ({ excludeService }: ServiceCardsProps) => {
     }
   ];
 
-  const filteredServices = allServices.filter(service => service.id !== excludeService);
+  const handleCardClick = (link: string, isCurrentPage: boolean) => {
+    if (isCurrentPage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.location.href = link;
+    }
+  };
 
   return (
     <div className="grid md:grid-cols-3 gap-4">
-      {filteredServices.map(service => (
-        <Card key={service.id} className="hover:shadow-lg transition-shadow">
-          <CardContent className="p-6">
-            <Icon name={service.icon} size={32} className="text-primary mb-3" />
-            <h3 className="font-semibold text-lg mb-4">{service.title}</h3>
-            <Button variant="link" className="p-0 h-auto" asChild>
-              <a href={service.link}>Подробнее →</a>
-            </Button>
-          </CardContent>
-        </Card>
-      ))}
+      {allServices.map(service => {
+        const isCurrentPage = service.id === excludeService;
+        return (
+          <Card 
+            key={service.id} 
+            className="hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={() => handleCardClick(service.link, isCurrentPage)}
+          >
+            <CardContent className="p-6">
+              <Icon name={service.icon} size={32} className="text-primary mb-3" />
+              <h3 className="font-semibold text-lg mb-4">{service.title}</h3>
+              <Button variant="link" className="p-0 h-auto pointer-events-none">
+                Подробнее →
+              </Button>
+            </CardContent>
+          </Card>
+        );
+      })}
     </div>
   );
 };

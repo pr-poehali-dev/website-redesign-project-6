@@ -31,6 +31,169 @@ const Design = () => {
               Ведем проект от идеи до разрешительных документов. Разрабатываем фирменный стиль, макеты вывесок и подготовим комплект для согласования в администрации.
             </p>
 
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-6 md:p-8 mb-8 border-2 border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary text-primary-foreground rounded-full p-3 flex-shrink-0">
+                  <Icon name="Gift" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Специальное предложение</h3>
+                  <p className="text-gray-700 mb-3">
+                    При заказе полного цикла (дизайн + производство + монтаж) — <span className="font-semibold text-primary">согласование вывески в подарок</span>. Вы получите готовую вывеску со всеми разрешениями.
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Акция действует до конца месяца
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8">Этапы разработки дизайна</h2>
+              
+              <div className="grid gap-8">
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/54130c5e-9b4d-4cb7-afc6-1d8180dea348.jpg" 
+                        alt="Концепция и эскизы"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Lightbulb" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Концепция и эскизы</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Изучаем ваш бизнес, целевую аудиторию и конкурентов. Разрабатываем несколько концепций дизайна — от лаконичных до ярких. Показываем первые эскизы и обсуждаем с вами, какое направление лучше подходит.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Анализ бизнеса и аудитории</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>2-3 варианта концепции</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Первые эскизы и обсуждение</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex md:flex-row-reverse">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/6ac03c5f-84b1-4f5a-8edb-ecbf620bc7b8.jpg" 
+                        alt="3D-визуализация"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="Box" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">3D-визуализация</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Создаём фотореалистичную визуализацию — вы увидите, как будет выглядеть вывеска на вашем здании ещё до изготовления. Показываем, как работает подсветка днём и ночью. Можно внести правки до начала производства.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Реалистичная картинка на вашем фасаде</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Визуализация днём и ночью</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Возможность правок</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/be952e3c-db6e-4d11-886f-f9f12a5e2a9e.jpg" 
+                        alt="Брендбук и гайдлайны"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="BookOpen" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Брендбук и гайдлайны</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Создаём полный фирменный стиль: логотип, цветовую палитру, шрифты и правила их использования. Оформляем в удобный документ, который можно передать в типографию, рекламное агентство или новым сотрудникам. Ваш бренд будет выглядеть единообразно везде.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Полный фирменный стиль</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Правила использования</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Готовый документ</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex md:flex-row-reverse">
+                    <div className="md:w-2/5">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/820f24d3-2a0c-446f-996e-d0f46f8895f8/files/4b94c43a-f569-4b9d-b5d5-dba4f7ca49f7.jpg" 
+                        alt="Техническая документация"
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 md:w-3/5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon name="FileText" size={24} className="text-primary" />
+                        <h3 className="text-xl font-bold">Техническая документация и согласование</h3>
+                      </div>
+                      <p className="text-gray-700 mb-4">
+                        Подготовим все необходимые чертежи, схемы крепления и подключения подсветки. Соберём пакет документов для согласования с администрацией и получим все разрешения. Вы получите готовый паспорт вывески и разрешение на размещение.
+                      </p>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Чертежи для производства</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Пакет для согласования</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Icon name="Check" size={18} className="text-green-600 flex-shrink-0" />
+                          <span>Получение разрешений</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-gray-50 rounded-xl p-6 md:p-8 mb-8">
               <h2 className="text-2xl font-semibold mb-6">Технологии и особенности</h2>
               
@@ -97,19 +260,27 @@ const Design = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" asChild className="flex-1">
-                <a href="tel:+74162227678">
-                  <Icon name="Phone" size={20} className="mr-2" />
-                  Позвонить
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="flex-1">
-                <a href="https://wa.me/79656713170" target="_blank" rel="noopener noreferrer">
-                  <Icon name="MessageCircle" size={20} className="mr-2" />
-                  Написать в WhatsApp
-                </a>
-              </Button>
+            <div className="bg-gradient-to-r from-primary to-primary/80 rounded-xl p-6 md:p-8 mb-8 text-white">
+              <div className="text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">Нужен дизайн вывески?</h2>
+                <p className="text-lg mb-6 opacity-90">
+                  Покажем, как будет выглядеть вывеска на вашем здании и поможем с согласованием
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" variant="secondary" asChild>
+                    <a href="tel:+74162227678">
+                      <Icon name="Phone" size={20} className="mr-2" />
+                      Позвонить
+                    </a>
+                  </Button>
+                  <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border-white text-white" asChild>
+                    <a href="https://wa.me/79656713170" target="_blank" rel="noopener noreferrer">
+                      <Icon name="MessageCircle" size={20} className="mr-2" />
+                      Написать в WhatsApp
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
 
             <ServiceCards excludeService="design" />
